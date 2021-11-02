@@ -1,4 +1,5 @@
 import React from 'react';
+import { StyledPaginado } from './StyledPaginado';
 
 const Paginado = ({countries, couPerPage, paginado}) => {
 
@@ -9,7 +10,7 @@ const Paginado = ({countries, couPerPage, paginado}) => {
     }
 
     return (
-        <div>          
+        <StyledPaginado>          
            <nav>
                <ul>
                    {
@@ -21,7 +22,7 @@ const Paginado = ({countries, couPerPage, paginado}) => {
                    }
                </ul>
            </nav>
-        </div>
+        </StyledPaginado>
     )
 }
 

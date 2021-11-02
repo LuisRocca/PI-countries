@@ -2,7 +2,6 @@ const { Router } = require('express');
 const axios = require('axios');
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const { country_activity } = require('../db')
 const { conn } = require('../db')
 const { Country, Activity } = conn.models;
 
@@ -20,8 +19,8 @@ const getApiInfo = async () => {
            name: country.name.common,
            img: country.flags[0],
            continents: country.continents[0],
-           capital: country.capital?.[0],
-           subregion: country.subregion,
+           capital: country.capital?.[0] , //?.[0] por alguna razon pregunto y accedo
+           subregion: country.subregion,  // de lo contrario no accedo
            area: country.area,
            population: country.population,
         }
@@ -30,7 +29,7 @@ const getApiInfo = async () => {
     return countryResul;
 }
 
-const getDb = async() => {
+const getDb = async() => { //traer db e incluir una actividad
     return await Country.findAll({
         include: {
             model: Activity,
@@ -56,15 +55,15 @@ router.get('/countries' , async(req, res) => { // /countries?name=argentina
         let countries;
         const countryDB = await Country.count(); //aqui cuento los registros de countries
         countries = countryDB === 0 ?
-        await getApiInfo() :
-        await getDb()
+        await getApiInfo() :// asi que si la db esta bacia llamo a la api
+        await getDb() // si no saco de la bd 
     if ( name ) {
         const byName = countries.filter(n => n.name.toLowerCase().includes(name.toLowerCase()));
         byName.length ? 
         res.status(200).send(byName) :
-        res.status(404).send('no se encontro ningun pais')
+        res.status(404).json({ error: 'no se encontro ningun pais' })
     }  else {
-       res.status(200).json({resuld: countries})  
+       res.status(200).send(countries)  
     }
       
 })
@@ -73,7 +72,7 @@ router.get('/countries/:id', async (req, res) => {
     const { id } = req.params;
     const allCountries = await getDb();
     if ( id ) {
-        const idCountries = allCountries.filter( i => i.id.toLowerCase() == id.toLowerCase() )
+        const idCountries = allCountries.filter( i => i.id === id )
         idCountries.length?
         res.status(200).send(idCountries) :
         res.status(404).send('id no valido')
@@ -99,8 +98,8 @@ router.post('/activity', async(req, res) => {
 
  if(countries) {
     //  console.log('este son los countries',countries,createActivity)
-   await  createActivity.addCountries(countries) 
- }
+   await  createActivity.addCountries(countries) // estos son metodos magicos
+ } // que nos da squelize por detras! upa
 
  return res.status(200).json({mesage:'exito', createActivity })
 
