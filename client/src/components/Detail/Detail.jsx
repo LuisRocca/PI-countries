@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from "react-redux";
-import { getDetail } from '../redux/action';
+import { getDetail } from '../../redux/action';
+import { StyledDetail } from './StyledDetail';
 
 const Detail = (props) => {
 
@@ -24,9 +25,10 @@ const Detail = (props) => {
 
     return (
         
-        <div> 
-
-          <button onClick={goBack} className='' >Go Back</button>
+        <StyledDetail> 
+          {/* <img src={Img} /> */}
+          <button onClick={goBack} className='goBack' ><i class="fas fa-backward"></i> Go Back</button>
+          <div className="contenedor">
             {
                 loading ?
                 detail.map(i => (
@@ -59,7 +61,8 @@ const Detail = (props) => {
                 )) :
                 <div>loading</div>
             }
-        </div>
+            </div>
+        </StyledDetail>
     )
 }
 

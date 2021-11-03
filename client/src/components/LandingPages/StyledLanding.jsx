@@ -1,16 +1,25 @@
 import styled from 'styled-components';
 
 export const StyledLanding = styled.div`
-background-image: url("https://www.timeforpaws.co.uk/img/dalmatian.jpg")
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;
-height: 100vh;    
-position: relative;
-
-img {
-    height: 100vh;  
+* {
+    box-zise:0;
 }
+
+.back {
+    height: 100%;
+    width: 100%;
+  
+    position: relative;
+
+    img {
+
+        height: 100%;
+        width: 100%;
+        
+    }
+    
+}
+
 
 .container{
     position: absolute;

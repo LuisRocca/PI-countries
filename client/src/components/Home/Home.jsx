@@ -6,6 +6,7 @@ import Search from '../Search/Search'
 import Paginado from '../Paginado/Paginado'
 import {Link} from 'react-router-dom'
 import { StyledHome } from './StyledHome'
+import Img from './images/3.jpg'
 
 const Home = () => {
  
@@ -52,6 +53,9 @@ const Home = () => {
 
     return (
         <StyledHome>
+            <div className="back">
+            <img src={Img} />
+            </div>
             <div className="select">
             <select onChange={e => handleOrderP(e)} >
             <option value='Asc'>PopulationAsc</option>
@@ -83,11 +87,12 @@ const Home = () => {
             </select>
             </div>
             <Search />
-
+         
             <Paginado countries={countries.length} couPerPage={couPerPage} paginado={paginado} />
+            
             <div className='cards-container' >
             {
-                 allpages ?
+                countries ?
                 allpages.map((i) =>(
                 
                     <div className="contenedor">

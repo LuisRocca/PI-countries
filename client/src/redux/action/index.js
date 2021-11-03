@@ -42,6 +42,7 @@ export const getCoutryName = (payload) => {
 export const createActivity = (payload) => {
   return async (dispatch) => {
     const res = await axios.post('http://localhost:3001/activity', payload);
+    console.log(res)
     return dispatch({
       type: CREATE_ACTIVITY,
       res

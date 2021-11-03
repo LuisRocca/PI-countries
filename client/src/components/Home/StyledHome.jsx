@@ -1,15 +1,32 @@
 import styled from "styled-components"
 
+
+
 export const StyledHome = styled.div`
 padding-top: 150px;
-background: #685f5fb3;
+position: relative;
+
+.back {
+    top: 0px;  
+    position: absolute; 
+    background : url(./images/1.jpg);
+    img {
+        width: 100%;
+        height: 120vh;   
+        background-attachment:fixed;
+    }
+    
+}
+
 
 .container{
     display: flex;
     margin-top: 25px;
+    position: relative;
 }
 
 .cards-container{
+    position: relative;
     display: flex;
     justify-content: center;
     flex-direccion:row;
@@ -19,10 +36,12 @@ background: #685f5fb3;
     
     .contenedor{
         flex-direction: row;
+        position: relative;
     }
 }
 
 .select{
+    position: relative;
     display: flex;
     width: 100%;
     height: 3em;
@@ -50,7 +69,7 @@ background: #685f5fb3;
         border-radius: 20%;
         flex-direccion:columm;
         background: #0a0a0ade;
-        margin:10px 20px;
+        margin:1px 20px;
         flex: 1;
         padding: 5px;
         color:#fff;

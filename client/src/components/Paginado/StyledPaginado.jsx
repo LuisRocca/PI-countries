@@ -2,6 +2,7 @@ import styled from "styled-components"
 export const StyledPaginado = styled.div`
 padding-bottom: 50px;
 padding-top: 50px;
+position: relative;
 
 ul{
     display: flex;
@@ -17,6 +18,7 @@ ul{
         padding: 5px 10px;
         border: 2px solid black;
         border-radius: 5px;
+        cursor:pointer;
     }
     a:hover{
         background-color: blue;

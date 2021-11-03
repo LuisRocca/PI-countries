@@ -12,9 +12,9 @@ const ActivityCreate = () => {
     difficulty: "",
     duration: "",
     season: "",
-    countries: [],
+    countriesId: [],
   });
-  console.log(input.countries)
+  console.log(input.duration)
 
   const handleChange = (e) => {
     setInput({
@@ -22,6 +22,13 @@ const ActivityCreate = () => {
       [e.target.name]: e.target.value,
     });
   };
+
+  const handleDuration = (e) => {
+    setInput({
+      ...input,
+      duration: e.target.value 
+    })
+  }
 
   const handleCheck = (e) => {
 
@@ -35,11 +42,18 @@ const ActivityCreate = () => {
   const handleSelect = (e) => {
     setInput({
       ...input,
-      countries: [...input.countries, e.target.value],
+      countriesId: [...input.countriesId, e.target.value],
 
     });
     
   };
+
+  const deleteActivity = (id) => {
+    setInput({
+      ...input,
+      countriesId: input.countriesId.filter(t => t !== id)
+  })
+  }
 
   const handleSubmit = (e) => {
       e.preventDefault();
@@ -50,9 +64,11 @@ const ActivityCreate = () => {
         difficulty: "",
         duration: "",
         season: "",
-        countries: [],
+        countriesId: [],
       })
-  }
+  };
+
+ 
 
   useEffect(() => {
     dispatch(getAllCountries());
@@ -60,14 +76,14 @@ const ActivityCreate = () => {
 
   return (
     <StyledActivity>
-      <div>
+      <div >
         <Link to="/home">
-          <button>Volver</button>
+          <button className='volver' >Volver</button>
         </Link>
         <h1>Create Activities</h1>
         <form onSubmit={e => handleSubmit(e)} > 
           <div>
-            <label>Nombre:</label>
+            <label>Nombre :</label>
             <input
               type="text"
               value={input.name}
@@ -76,7 +92,7 @@ const ActivityCreate = () => {
             ></input>
           </div>
           <div>
-            <label>Difficulty:</label>
+            <label>Difficulty :</label>
             <input
               type="number"
               value={input.difficulty}
@@ -85,18 +101,18 @@ const ActivityCreate = () => {
             ></input>
           </div>
           <div>
-            <label>Duration:</label>
+            <label>Duration :</label>
             <input
-              type="time"
+              type="number"
               value={input.duration}
               name="duration"
-              onChange={(e) => handleChange(e)}
+              onChange={(e) => handleDuration(e)}
             ></input>
           </div>
           <div>
-            <h3>Season</h3>
+            <h2>Season</h2>
           </div>
-          <div>
+          <div className='select' >
 
             <label>
               <select onChange={(e) => handleCheck(e)} >
@@ -107,21 +123,23 @@ const ActivityCreate = () => {
               </select>
              </label>
 
-          </div>
+          
           <select onChange={(e) => handleSelect(e)}>
             { country.map((i) => (
               <option value={i.id}>{i.name}</option>
-            ))}
-            <ul>
+              ))
+            }
+          </select>
+          </div>
+          <ul>
               { 
-                input.countries.map( i => (
-                       <li>{i}</li>
+                input.countriesId.map( e => (
+                       <li>{e} <button onClick={() => deleteActivity(e)}><i className="fas fa-times"></i></button> </li>
                     ))
-                    
+                
               }
             </ul>
-          </select>
-          <button type="submit">Crear Activities</button>
+          <button className='submit' type="submit">Crear Activities</button>
         </form>
       </div>
     </StyledActivity>

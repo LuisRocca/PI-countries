@@ -2,7 +2,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LandingPage from './components/LandingPages/LandingPage';
 import Home from './components/Home/Home';
 import ActivityCreate from './components/ActivityCreate/ActivityCreate';
-import Detail from './components/Detail';
+import Detail from './components/Detail/Detail';
 import Navbar from './components/Navbar/Navbar';
 
 
