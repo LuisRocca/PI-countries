@@ -10,7 +10,7 @@ const Detail = (props) => {
     const dispatch = useDispatch();
     const {id} = props.match.params;
     const {history} = props // interesantoso
-    console.log(history)
+  
     
     const goBack = () => {
         history.goBack()
@@ -18,7 +18,6 @@ const Detail = (props) => {
 
     useEffect(() => {
         dispatch( getDetail(id))
-        console.log(id )
             setLoading(true)
     }, [ dispatch]);
 

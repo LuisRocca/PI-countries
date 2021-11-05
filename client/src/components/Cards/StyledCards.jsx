@@ -9,7 +9,7 @@ border-radius: 10px;
 width: 380px;
 height: 430px;
 justify-content: center;
-background:  linear-gradient(160deg, #f0f4f412 0%, rgba(0, 0, 0, 0.49) 101%); 
+background:  linear-gradient(160deg, #050505 0%, rgba(0, 0, 0, 0.49) 101%); 
 box-shadow: 5px 5px 20px rgba(14, 14, 14);
 cursor: pointer;
 transition: transform 250ms ease;
@@ -21,12 +21,14 @@ transition: transform 250ms ease;
 }
 
 .contImg{
-    width: 90%;
-    height: 90%;
+    width: 30vh;
+    display: flex;
+    height: 18vh;
     justify-content: center;
-    padding: 15px;
+    padding: 15px 45px;
      
     img{
+       
         border-radius: 20%;
         padding: 10px;
         width: 90%;
@@ -36,14 +38,13 @@ transition: transform 250ms ease;
 }
 
 .info{
-   
-    margin-left: 10px;
-    margin-botton: 15px
-    width: 50%;
-    height: 70%;
+    
+    height: 50%;
+    text-align: center;
 
     h1{
         color:white;
+        font-family: 'Overpass', sans-serif;
     }
     
    
@@ -51,6 +52,7 @@ transition: transform 250ms ease;
         font-size: 25px;
         color:white;
         text-decoration: none; 
+        font-family: 'Overpass', sans-serif;
     }
     
     

@@ -10,10 +10,12 @@ position: relative;
     input{
         font-size: 20px;
         padding: 10px 55px 10px 20px;
-        border-radius: 10%;
+        border-radius: 10px;
         outline: 0;
-        border: 2px solid black;
+        border: 2px solid #c8d3f3;
         width: 100%;
+        background: #8fbfd6c2;
+        color: #f5f5fb;
 
     }
     

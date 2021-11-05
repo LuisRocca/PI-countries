@@ -3,30 +3,16 @@ import styled from "styled-components"
 
 
 export const StyledHome = styled.div`
-padding-top: 150px;
-position: relative;
-
-.back {
-    top: 0px;  
-    position: absolute; 
-    background : url(./images/1.jpg);
-    img {
-        width: 100%;
-        height: 120vh;   
-        background-attachment:fixed;
-    }
-    
-}
-
+padding-top: 180px;
 
 .container{
     display: flex;
     margin-top: 25px;
-    position: relative;
+
 }
 
 .cards-container{
-    position: relative;
+
     display: flex;
     justify-content: center;
     flex-direccion:row;
@@ -36,17 +22,17 @@ position: relative;
     
     .contenedor{
         flex-direction: row;
-        position: relative;
+    
     }
 }
 
 .select{
-    position: relative;
+
     display: flex;
     width: 100%;
-    height: 3em;
+    height: 2em;
     line-height: 4;
-    border-radius: 30px;
+    
     
     .select::after {
         
@@ -66,7 +52,7 @@ position: relative;
      }
 
     select{
-        border-radius: 20%;
+        border-radius: 20px;
         flex-direccion:columm;
         background: #0a0a0ade;
         margin:1px 20px;
@@ -80,7 +66,16 @@ position: relative;
 
 }
 
+.contenedor_loading {
+       .loading {
+       color: #151516;
+       font-size: 20px;
+       position: relative;
+   }
 
+   
+
+}
 
 ` 
 

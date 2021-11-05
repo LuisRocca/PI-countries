@@ -9,16 +9,19 @@ max-width: 700px;
 min-height: 550px;
 width: 90%;
 border-radius: 20px;
-border: 2px solid;
-background:  #a9e9ef;
+border: 2px solid #8fbfd6;
+color: #ffff;
+background:  linear-gradient(160deg, #050505 0%, rgba(0, 0, 0, 0.49) 101%); 
 box-shadow: 0px 0px 20px rgba(14, 14, 14);
+font-family: 'Overpass', sans-serif;
 
 input {
     font-size: 15px;
     margin-bottom: 20px; 
     padding: 8px 10px;
-    border-radius: 20%;
-    border: 1px solid black;
+    border-radius: 15px;
+    border: 1px solid #8fbfd6;
+    background: #b8c1c5;
     outline: none;
     width: 70%;
     }
@@ -81,9 +84,9 @@ input {
      }
 
     select{
-        border-radius: 20%;
+        border-radius: 15px;
         flex-direccion:columm;
-        background: #0a0a0ade;
+        background: #0e0707;
         margin:1px 20px;
         flex: 1;
         padding: 5px;

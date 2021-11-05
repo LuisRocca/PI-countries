@@ -14,14 +14,14 @@ ul{
 
     a{
         text-decoration: none;
-        color: black;
+        color: #black;
         padding: 5px 10px;
         border: 2px solid black;
         border-radius: 5px;
         cursor:pointer;
     }
     a:hover{
-        background-color: blue;
+        background-color: #8fbfd6;
     }
 }
 

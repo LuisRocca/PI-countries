@@ -5,9 +5,10 @@ width: 100%;
 position: fixed;
 background-color: black;
 top: 0;
+left: 0;
 z-index: 10;
 border-bottom: 2px solid #e2d8d8; 
-
+box-shadow: 0 9px 16px #fff;
 .container{
     margin: auto;
     width: 90%;
@@ -29,7 +30,7 @@ border-bottom: 2px solid #e2d8d8;
             transition: color 200ms ease;
 
             &:hover{
-                color: blue;
+                color: #8fbfd6eb;
                 /* color: black; */
             }
             
@@ -40,8 +41,8 @@ border-bottom: 2px solid #e2d8d8;
 
 .title{
     font-weight: bold;
-    font-size: 40px
-    
+    font-size: 40px;
+    font-family: 'Dancing Script', cursiva;
 }
 .list {
     list-style: none;
@@ -65,14 +66,15 @@ border-bottom: 2px solid #e2d8d8;
     transition: background-color 250ms ease;
     font-weight: bold;
     border: 2px solid black;
+    font-family: 'Overpass', sans-serif;
 }
 
 .active {
-    background-color: blue;
+    background-color: #8fbfd6eb;
 }
 
 .list-item a:hover{
-    background-color: blue;
+    background-color: #243ec3;;
     color: black;
     font-weight: bold;
 }

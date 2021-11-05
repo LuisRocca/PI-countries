@@ -7,10 +7,12 @@ import {
   SEARCH,
   CREATE_ACTIVITY,
   GET_DETAIL,
+  SET_LOADING,
 
 } from "../action";
 
 const initialState = {
+  loading: false,
   countries: [],
   copiaCountries: [],
   detail: [],
@@ -19,6 +21,7 @@ const initialState = {
 const rooRducer = (state = initialState, action) => {
   
   switch (action.type) {
+   
     case CREATE_ACTIVITY:
       return {
         ...state
@@ -33,12 +36,18 @@ const rooRducer = (state = initialState, action) => {
         ...state,
         countries: action.payload,
         copiaCountries: action.payload,
+        loading: false,
       };
     case SEARCH:
         return {
             ...state,
             countries: action.payload
         };
+    case SET_LOADING:
+        return {
+          ...state,
+          loading: action.payload
+        }
     case BY_CONTINENTS:
       const allCountries = state.copiaCountries;
       const continentsFlitred =
@@ -52,7 +61,7 @@ const rooRducer = (state = initialState, action) => {
     case BY_ACTIVITY:      
         const copia = state.copiaCountries;
         const filterByActivity = action.payload === 'Nothing' ? copia :
-        copia.filter(i => i.activities.name === action.payload)
+        copia.filter(i => i.activities.length > 0 )
         return { 
             ...state,
             countries: filterByActivity

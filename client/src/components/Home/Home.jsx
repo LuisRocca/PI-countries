@@ -1,23 +1,24 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { alphabeticalOrder, byActivity, byContinents, getAllCountries, populationOrder } from '../../redux/action'
+import { alphabeticalOrder, byActivity, byContinents, getAllCountries, populationOrder, setLoading } from '../../redux/action'
 import Card from '../Cards/Card'
 import Search from '../Search/Search'
 import Paginado from '../Paginado/Paginado'
 import {Link} from 'react-router-dom'
 import { StyledHome } from './StyledHome'
-import Img from './images/3.jpg'
+
 
 const Home = () => {
  
    const dispatch = useDispatch();
    const countries = useSelector((e )=> e.countries); //estados "globales"
+   const loading = useSelector(e => e.loading); //estados "globales"
    const [currentPage, setCurrentPage] = useState(1);
    const [couPerPage, setCouPerPage] = useState(9)
    const indexlast = currentPage * couPerPage;
    const indexFirst = indexlast - couPerPage
    const allpages = countries.slice(indexFirst, indexlast)
-
+  console.log(loading)
    const [orderName, setOrderName] = useState('')
    const [orderPopulation, setOrderPopulation] = useState('')
 
@@ -49,13 +50,12 @@ const Home = () => {
 
    useEffect(() => {
        dispatch(getAllCountries())
+       dispatch(setLoading(true))
    }, [])
 
     return (
         <StyledHome>
-            <div className="back">
-            <img src={Img} />
-            </div>
+           
             <div className="select">
             <select onChange={e => handleOrderP(e)} >
             <option value='Asc'>PopulationAsc</option>
@@ -92,7 +92,7 @@ const Home = () => {
             
             <div className='cards-container' >
             {
-                countries ?
+                !loading ?
                 allpages.map((i) =>(
                 
                     <div className="contenedor">
@@ -106,8 +106,9 @@ const Home = () => {
                        </div>
                
                 )) :
-                <div>aquitoy</div>
+                <div className='contenedor_loading'><div className="loading">Loading...</div></div>
             }
+           
              </div>
         </StyledHome>
     )

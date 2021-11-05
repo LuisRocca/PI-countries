@@ -14,7 +14,7 @@ const ActivityCreate = () => {
     season: "",
     countriesId: [],
   });
-  console.log(input.duration)
+  console.log(input)
 
   const handleChange = (e) => {
     setInput({
@@ -58,7 +58,7 @@ const ActivityCreate = () => {
   const handleSubmit = (e) => {
       e.preventDefault();
       dispatch(createActivity(input))
-      alert("Personaje creado!")
+      alert("Activida creado!")
       setInput({
         name: "",
         difficulty: "",
@@ -83,7 +83,7 @@ const ActivityCreate = () => {
         <h1>Create Activities</h1>
         <form onSubmit={e => handleSubmit(e)} > 
           <div>
-            <label>Nombre :</label>
+            <label>Nombre : </label>
             <input
               type="text"
               value={input.name}
@@ -92,7 +92,7 @@ const ActivityCreate = () => {
             ></input>
           </div>
           <div>
-            <label>Difficulty :</label>
+            <label>Difficulty : </label>
             <input
               type="number"
               value={input.difficulty}
@@ -101,7 +101,7 @@ const ActivityCreate = () => {
             ></input>
           </div>
           <div>
-            <label>Duration :</label>
+            <label>Duration : </label>
             <input
               type="number"
               value={input.duration}
@@ -139,6 +139,7 @@ const ActivityCreate = () => {
                 
               }
             </ul>
+
           <button className='submit' type="submit">Crear Activities</button>
         </form>
       </div>

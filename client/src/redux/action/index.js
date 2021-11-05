@@ -7,6 +7,7 @@ export const POPULATION_ORDER = "POPULATION_ORDER";
 export const SEARCH = 'SEARCH';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_DETAIL = 'GET_DETAIL';
+export const SET_LOADING = 'SET_LOADING';
 
 
 export const getAllCountries = () => {
@@ -41,11 +42,10 @@ export const getCoutryName = (payload) => {
 
 export const createActivity = (payload) => {
   return async (dispatch) => {
-    const res = await axios.post('http://localhost:3001/activity', payload);
-    console.log(res)
+    const { data } = await axios.post('http://localhost:3001/activity', payload);
     return dispatch({
       type: CREATE_ACTIVITY,
-      res
+     data
     })
   }
 }
@@ -76,4 +76,8 @@ export const populationOrder = (payload) => {
     type: POPULATION_ORDER,
     payload,
   };
+};
+
+export function setLoading(payload) {
+  return { type: SET_LOADING, payload };
 };

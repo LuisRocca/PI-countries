@@ -1,16 +1,16 @@
 import styled from 'styled-components';
 
 export const StyledLanding = styled.div`
-* {
-    box-zise:0;
-}
+margin:0;
+padding:0;
+outline:0;
+box-sizing:border-box;
 
 .back {
-    height: 100%;
-    width: 100%;
-  
+    
+    height: 100vh;
+    width: 100vw;
     position: relative;
-
     img {
 
         height: 100%;
@@ -20,7 +20,6 @@ export const StyledLanding = styled.div`
     
 }
 
-
 .container{
     position: absolute;
     top: 20%;
@@ -29,6 +28,7 @@ export const StyledLanding = styled.div`
     transform: translateY(-50%);
     text-shadow: 0px 0px 10px black, 0px 0px 50px black;
 }
+
 a{
     color: white;
     font-size: 20px;

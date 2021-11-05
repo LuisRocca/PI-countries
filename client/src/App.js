@@ -4,6 +4,7 @@ import Home from './components/Home/Home';
 import ActivityCreate from './components/ActivityCreate/ActivityCreate';
 import Detail from './components/Detail/Detail';
 import Navbar from './components/Navbar/Navbar';
+import About from './components/About/About';
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
          <Route exact path='/home' component={Home} ></Route>
          <Route exact path='/detail/:id' component={Detail} ></Route>
          <Route exact path='/create/activity' component={ActivityCreate} ></Route>
+         <Route exact path='/about' component={About} ></Route>
          </Route>
          </Switch>
       </BrowserRouter>
