@@ -18,7 +18,6 @@ const Home = () => {
    const indexlast = currentPage * couPerPage;
    const indexFirst = indexlast - couPerPage
    const allpages = countries.slice(indexFirst, indexlast)
-  console.log(loading)
    const [orderName, setOrderName] = useState('')
    const [orderPopulation, setOrderPopulation] = useState('')
 
@@ -69,7 +68,7 @@ const Home = () => {
             
             <select onChange={e => handleByActivity(e)} >
             <option value='Nothing'>Nothing</option>
-            <option value="prueva1">prueva</option>
+            <option value="prueva">prueva</option>
             <option value='Guia turistica por la istorial del pais'>Guia turistica por la istorial del pais</option>
             <option value='Acampado en la montaña'>Acampado en la montaña</option>
             <option value='Dias de playa en los mejores hoteles de la zona'>"Dias de playa en los mejores hoteles de la zona</option>

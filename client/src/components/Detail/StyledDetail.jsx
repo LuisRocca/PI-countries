@@ -14,10 +14,16 @@ font-family: 'Overpass', sans-serif;
     min-height: 550px;
     width: 90%;
     border-radius: 20px;
-    border: 2px solid #90d1f1;;
+    border: 2px solid #90d1f1;
     color: #ffff;
     background:  linear-gradient(160deg, #050505 0%, rgba(0, 0, 0, 0.49) 101%);
     box-shadow: 0px 0px 20px rgba(14, 14, 14);
+}
+
+.activity {
+    border: 2px solid #fff;
+    margin-bottom:10px;
+    padding: 10px;
 }
 
 .imgDetails {

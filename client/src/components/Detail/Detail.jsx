@@ -45,7 +45,9 @@ const Detail = (props) => {
                   {
                       i.activities.length > 0 ?
                       i.activities.map( i =>
-                        <div>
+                        <div className='activity' >
+                       
+                        <h3>creacion n: {i.id}</h3>
                         <h3>name: {i.name}</h3>
                         <h3>difficulty(1-5): {i.difficulty}</h3>
                         <h3>duration: {i.duration}</h3>

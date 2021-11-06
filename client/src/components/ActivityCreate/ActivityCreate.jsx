@@ -4,9 +4,28 @@ import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/action";
 import { StyledActivity } from "./StyledActivity";
 
+
+const validator = (input) => {
+  let errors = {};
+  if (!input.name) {
+    errors.name = "the activity needs to have a name"
+  }
+  if (!input.difficulty) {
+    errors.difficulty = "needs to have a level of difficulty"
+  }
+  if (input.duration < 1)  {
+    errors.duration = "at least you have to speculate that it will last an hour"
+  }
+  if (!input.season) {
+    errors.season = "you must choose a season"
+  }
+  return errors
+}
+
 const ActivityCreate = () => {
   const dispatch = useDispatch();
   const country = useSelector((e) => e.countries);
+  const [errors, setErrors] = useState({})
   const [input, setInput] = useState({
     name: "",
     difficulty: "",
@@ -21,14 +40,12 @@ const ActivityCreate = () => {
       ...input,
       [e.target.name]: e.target.value,
     });
-  };
-
-  const handleDuration = (e) => {
-    setInput({
+    setErrors(validator({
       ...input,
-      duration: e.target.value 
-    })
-  }
+      [e.target.name]: e.target.value,
+    
+    }))
+  };
 
   const handleCheck = (e) => {
 
@@ -36,6 +53,10 @@ const ActivityCreate = () => {
       ...input,
       season: e.target.value
     });
+    setErrors(validator({
+      ...input,
+      season: e.target.value
+    }))
    
   };
 
@@ -52,13 +73,14 @@ const ActivityCreate = () => {
     setInput({
       ...input,
       countriesId: input.countriesId.filter(t => t !== id)
-  })
+    })
   }
 
   const handleSubmit = (e) => {
+    
       e.preventDefault();
       dispatch(createActivity(input))
-      alert("Activida creado!")
+      alert("Activida creada!")
       setInput({
         name: "",
         difficulty: "",
@@ -66,7 +88,9 @@ const ActivityCreate = () => {
         season: "",
         countriesId: [],
       })
+    
   };
+      
 
  
 
@@ -85,29 +109,43 @@ const ActivityCreate = () => {
           <div>
             <label>Nombre : </label>
             <input
+              required
               type="text"
               value={input.name}
               name="name"
               onChange={(e) => handleChange(e)}
             ></input>
+            {
+              errors.name && (<p>{errors.name} <i className="fas fa-exclamation-triangle"></i></p>)
+            }
           </div>
-          <div>
+          <div className="select" >
             <label>Difficulty : </label>
-            <input
-              type="number"
-              value={input.difficulty}
-              name="difficulty"
-              onChange={(e) => handleChange(e)}
-            ></input>
+             <select required onChange={(e) => handleChange(e)} name="difficulty" id="">
+                <option value="">Difficulty </option>
+                <option value="1">Level of Difficulty 1 </option>
+                <option value="2">Level of Difficulty 2 </option>
+                <option value="3">Level of Difficulty 3 </option>
+                <option value="4">Level of Difficulty 4 </option>
+                <option value="5">Level of Difficulty 5 </option>
+             </select>  
+             {
+              errors.difficulty && (<p>{errors.difficulty} <i className="fas fa-exclamation-triangle"></i></p>)
+            }        
           </div>
           <div>
             <label>Duration : </label>
             <input
+             required
+             placeholder="place the hours of duration"
               type="number"
-              value={input.duration}
+              value={ input.duration }
               name="duration"
-              onChange={(e) => handleDuration(e)}
+              onChange={(e) => handleChange(e)}
             ></input>
+             {
+              errors.duration && (<p>{errors.duration} <i className="fas fa-exclamation-triangle"></i></p>)
+            }
           </div>
           <div>
             <h2>Season</h2>
@@ -115,16 +153,23 @@ const ActivityCreate = () => {
           <div className='select' >
 
             <label>
-              <select onChange={(e) => handleCheck(e)} >
+              <select required onChange={(e) => handleCheck(e)} >
+                <option value="" >Select season</option>
                 <option value="Verano" >Verano</option>
                 <option value="Otoño" >Otoño</option>
                 <option value="Invierno" >Invierno</option>
                 <option value="Primavera" >Primavera</option>
               </select>
              </label>
+            
+             {
+              errors.season && (<p>{errors.season} <i className="fas fa-exclamation-triangle"></i></p>)
+            }
 
-          
-          <select onChange={(e) => handleSelect(e)}>
+            </div>
+          <div className='select' >
+          <select required onChange={(e) => handleSelect(e)}>
+            <option>select countries</option>
             { country.map((i) => (
               <option value={i.id}>{i.name}</option>
               ))
@@ -134,7 +179,7 @@ const ActivityCreate = () => {
           <ul>
               { 
                 input.countriesId.map( e => (
-                       <li>{e} <button onClick={() => deleteActivity(e)}><i className="fas fa-times"></i></button> </li>
+                       <li>{e} <button className="delete" onClick={() => deleteActivity(e)} ><i className="fas fa-times"></i></button> </li>
                     ))
                 
               }
@@ -147,4 +192,5 @@ const ActivityCreate = () => {
   );
 };
 
+// 
 export default ActivityCreate;

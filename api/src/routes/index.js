@@ -85,9 +85,9 @@ router.post('/activity', async(req, res) => {
      difficulty,
      duration,
      season,
-    countries,
+    countriesId,
  } = req.body;
-
+    
  const createActivity = await Activity.create({
     name,
     difficulty,
@@ -96,13 +96,13 @@ router.post('/activity', async(req, res) => {
  
  });
 
- if(countries) {
-    //  console.log('este son los countries',countries,createActivity)
-   await  createActivity.addCountries(countries) // estos son metodos magicos
+ if(countriesId) {
+    //  console.log('este son los countriesId',countriesId,createActivity)
+   await  createActivity.addCountries(countriesId) // estos son metodos magicos
  } // que nos da squelize por detras! upa
 
  return res.status(200).json({mesage:'exito', createActivity })
-
+ 
 });
 
 module.exports = router;

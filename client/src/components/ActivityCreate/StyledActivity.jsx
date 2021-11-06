@@ -15,15 +15,33 @@ background:  linear-gradient(160deg, #050505 0%, rgba(0, 0, 0, 0.49) 101%);
 box-shadow: 0px 0px 20px rgba(14, 14, 14);
 font-family: 'Overpass', sans-serif;
 
+
+p {
+    color:red;
+    margin: -5px 6px;
+    i {
+        color: red;
+    }
+}
+
+.delete {
+    background: #ed6969;
+    border-radius: 15px;
+    i {
+        color: red;
+       
+    }
+}
+
 input {
     font-size: 15px;
-    margin-bottom: 20px; 
+    margin: 20px; 
     padding: 8px 10px;
     border-radius: 15px;
     border: 1px solid #8fbfd6;
     background: #b8c1c5;
     outline: none;
-    width: 70%;
+    width: 40%;
     }
 
     .submit{
@@ -35,6 +53,8 @@ input {
         transition: background-color 100ms ease, font-weight 100ms ease;;
         outline: none;
         cursor: pointer;
+        margin-left: 432px;
+        margin-top: 50px;
         
         &:hover{
             font-weight: bold;
@@ -87,7 +107,7 @@ input {
         border-radius: 15px;
         flex-direccion:columm;
         background: #0e0707;
-        margin:1px 20px;
+        margin:9px 10px;
         flex: 1;
         padding: 5px;
         color:#fff;
