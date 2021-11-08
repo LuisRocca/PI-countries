@@ -50,7 +50,7 @@ const Detail = (props) => {
                         <h3>creacion n: {i.id}</h3>
                         <h3>name: {i.name}</h3>
                         <h3>difficulty(1-5): {i.difficulty}</h3>
-                        <h3>duration: {i.duration}</h3>
+                        <h3>duration: {i.duration} hours</h3>
                         <h3>season: {i.season}</h3>
                         
                         </div>

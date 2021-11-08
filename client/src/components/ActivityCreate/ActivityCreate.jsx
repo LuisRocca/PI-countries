@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { createActivity, getAllCountries } from "../../redux/action";
 import { StyledActivity } from "./StyledActivity";
+import Modal from "./Modal";
 
 
 const validator = (input) => {
@@ -26,6 +27,7 @@ const ActivityCreate = () => {
   const dispatch = useDispatch();
   const country = useSelector((e) => e.countries);
   const [errors, setErrors] = useState({})
+  const [showModal, setShowModal] = useState( false )
   const [input, setInput] = useState({
     name: "",
     difficulty: "",
@@ -80,7 +82,6 @@ const ActivityCreate = () => {
     
       e.preventDefault();
       dispatch(createActivity(input))
-      alert("Activida creada!")
       setInput({
         name: "",
         difficulty: "",
@@ -88,6 +89,7 @@ const ActivityCreate = () => {
         season: "",
         countriesId: [],
       })
+      setShowModal(true)
     
   };
       
@@ -105,6 +107,10 @@ const ActivityCreate = () => {
           <button className='volver' >Volver</button>
         </Link>
         <h1>Create Activities</h1>
+        {
+          showModal && <Modal  setShowModal={setShowModal} showModal={showModal} />
+        }
+        
         <form onSubmit={e => handleSubmit(e)} > 
           <div>
             <label>Nombre : </label>

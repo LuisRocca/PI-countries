@@ -8,7 +8,17 @@ export const SEARCH = 'SEARCH';
 export const CREATE_ACTIVITY = 'CREATE_ACTIVITY';
 export const GET_DETAIL = 'GET_DETAIL';
 export const SET_LOADING = 'SET_LOADING';
+export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 
+export const getAllActivities = () => {
+  return async (dispatch) => {
+    const { data } = await axios("http://localhost:3001/activity");
+    return dispatch({
+      type: GET_ACTIVITIES,
+      payload: data,
+    })
+  }
+}
 
 export const getAllCountries = () => {
   return async (dispatch) => {

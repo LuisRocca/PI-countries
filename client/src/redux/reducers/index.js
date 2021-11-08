@@ -8,6 +8,7 @@ import {
   CREATE_ACTIVITY,
   GET_DETAIL,
   SET_LOADING,
+  GET_ACTIVITIES,
 
 } from "../action";
 
@@ -15,6 +16,7 @@ const initialState = {
   loading: false,
   countries: [],
   copiaCountries: [],
+  activities: [],
   detail: [],
 };
 
@@ -38,6 +40,11 @@ const rooRducer = (state = initialState, action) => {
         copiaCountries: action.payload,
         loading: false,
       };
+    case GET_ACTIVITIES:
+      return {
+        ...state,
+        activities: action.payload,
+      }
     case SEARCH:
         return {
             ...state,
@@ -60,8 +67,10 @@ const rooRducer = (state = initialState, action) => {
       };
     case BY_ACTIVITY:      
         const copia = state.copiaCountries;
-        const filterByActivity = action.payload === 'Nothing' ? copia :
-        copia.filter(i => i.activities.length > 0 )
+        const acti = state.activities;
+        const filterByActivity = action.payload === 'Nothing' ? copia 
+        : copia.filter( i => i.activities.length > 0)
+        // copia.filter(i => i.activities.map( i => i.name ) === action.payload )
         return { 
             ...state,
             countries: filterByActivity

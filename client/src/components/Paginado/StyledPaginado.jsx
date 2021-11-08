@@ -12,13 +12,16 @@ ul{
     gap: 16px;
     margin: 0 15px 10px 15px;
 
+    
     a{
+        
         text-decoration: none;
         color: #black;
         padding: 5px 10px;
-        border: 2px solid black;
+        border: 2px solid #1c1b1b;
         border-radius: 5px;
-        cursor:pointer;
+        cursor:pointer; 
+      
     }
     a:hover{
         background-color: #8fbfd6;

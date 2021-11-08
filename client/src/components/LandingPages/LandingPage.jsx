@@ -1,7 +1,7 @@
 import React from 'react'
 import { StyledLanding } from './StyledLanding'
 import { Link } from 'react-router-dom';
-import Img from './images/3.jpg'
+import Img from './images/wp7515712.jpg'
 const LandingPage = () => {
     return (
         <StyledLanding>
@@ -9,7 +9,7 @@ const LandingPage = () => {
            <img src={Img} />
            </div>
           <div className="container">
-          <h1>about us</h1>  
+          <h1>Welcomen may PI</h1>  
           <Link to='/home'>go</Link>
           </div>
         </StyledLanding>

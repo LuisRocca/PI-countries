@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { alphabeticalOrder, byActivity, byContinents, getAllCountries, populationOrder, setLoading } from '../../redux/action'
+import { alphabeticalOrder, byActivity, byContinents, getAllActivities, getAllCountries, populationOrder, setLoading } from '../../redux/action'
 import Card from '../Cards/Card'
 import Search from '../Search/Search'
 import Paginado from '../Paginado/Paginado'
@@ -13,6 +13,7 @@ const Home = () => {
    const dispatch = useDispatch();
    const countries = useSelector((e )=> e.countries); //estados "globales"
    const loading = useSelector(e => e.loading); //estados "globales"
+   const activities = useSelector(e => e.activities); //estados "globales"
    const [currentPage, setCurrentPage] = useState(1);
    const [couPerPage, setCouPerPage] = useState(9)
    const indexlast = currentPage * couPerPage;
@@ -49,6 +50,7 @@ const Home = () => {
 
    useEffect(() => {
        dispatch(getAllCountries())
+       dispatch(getAllActivities())
        dispatch(setLoading(true))
    }, [])
 
@@ -69,9 +71,13 @@ const Home = () => {
             <select onChange={e => handleByActivity(e)} >
             <option value='Nothing'>Nothing</option>
             <option value="prueva">prueva</option>
-            <option value='Guia turistica por la istorial del pais'>Guia turistica por la istorial del pais</option>
-            <option value='Acampado en la montaña'>Acampado en la montaña</option>
-            <option value='Dias de playa en los mejores hoteles de la zona'>"Dias de playa en los mejores hoteles de la zona</option>
+           {
+               
+               activities.map( i  => (
+                  <option value={i.name} >{i.name}</option> 
+               ))
+               
+           }
             </select>
             <select onChange={ e => handleContinents(e)}>
             <option value='All'>All</option>

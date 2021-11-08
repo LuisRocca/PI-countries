@@ -41,13 +41,23 @@ const getDb = async() => { //traer db e incluir una actividad
     })
 }
 
-// const getAllCountries = async () => {
-//     const countries = await getApiInfo();
-//     const dbinfo = await getDb();
-//     const union = countries.concat(dbinfo);
-//      return union
-// }
+const getDbActivity = async() => {
+    return await Activity.findAll({
+        include: {
+            model: Country,
+            attribute: ['name:', 'img', 'continents', 'capital'],
+            through: {
+                attributes: []
+            }
+        }
+    })
+}
 
+router.get('/activity', async(req , res) => {
+  const activities = await getDbActivity()
+  const { name } = req.query;
+  res.status(200).send(activities)
+})
 
 router.get('/countries' , async(req, res) => { // /countries?name=argentina
     const { name } = req.query;
@@ -99,6 +109,7 @@ router.post('/activity', async(req, res) => {
  if(countriesId) {
     //  console.log('este son los countriesId',countriesId,createActivity)
    await  createActivity.addCountries(countriesId) // estos son metodos magicos
+  
  } // que nos da squelize por detras! upa
 
  return res.status(200).json({mesage:'exito', createActivity })
