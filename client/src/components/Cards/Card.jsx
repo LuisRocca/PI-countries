@@ -1,10 +1,11 @@
 import React from "react";
-import { StyledCards } from "./StyledCards";
+import { StyledCards , StyledOverlay } from "./StyledCards";
 
 const Card = ({ name, image, continents, key }) => {
   return (
-    <StyledCards>
-      <div className="contImg">
+    
+    <StyledCards  >
+      <div className=" contImg">
         <img src={image} />
       </div>
       <div className="info">
@@ -17,6 +18,7 @@ const Card = ({ name, image, continents, key }) => {
         </div>
       </div>
     </StyledCards>
+   
   );
 };
 

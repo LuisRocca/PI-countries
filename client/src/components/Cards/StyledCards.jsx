@@ -1,19 +1,22 @@
 import styled from "styled-components"
 
+
 export const StyledCards = styled.div`
-margin: 30px;
+
+margin: 50px  70px;
 flex-direction: column;
 display: flex;
 border-radius: 10px;
 overflow: hidden;
 border: 1px solid #1c1b1b;
-width: 380px;
+width: 360px;
 height: 430px;
 justify-content: center;
 background:  linear-gradient(160deg, #050505 0%, rgba(0, 0, 0, 0.49) 101%); 
 box-shadow: 5px 5px 20px rgba(14, 14, 14);
 cursor: pointer;
 transition: transform 250ms ease;
+
 
 &:hover{
     transform: scale(1.02);
@@ -26,7 +29,7 @@ transition: transform 250ms ease;
     display: flex;
     height: 18vh;
     justify-content: center;
-    padding: 15px 45px;
+    padding: 15px 34px;
      
     img{
        
@@ -42,7 +45,7 @@ transition: transform 250ms ease;
     
     height: 50%;
     text-align: center;
-
+    font-size: 14px;
     h1{
         color:white;
         font-family: 'Overpass', sans-serif;
@@ -83,5 +86,9 @@ transition: transform 250ms ease;
     }
     
 }
+
+
+`
+export const StyledOverlay = styled.div`
 
 `

@@ -69,8 +69,8 @@ const rooRducer = (state = initialState, action) => {
         const copia = state.copiaCountries;
         const acti = state.activities;
         const filterByActivity = action.payload === 'Nothing' ? copia 
-        : copia.filter( i => i.activities.length > 0)
-        // copia.filter(i => i.activities.map( i => i.name ) === action.payload )
+         : action.payload === 'All' ? copia.filter( i => i.activities.length > 0)
+         : acti.filter( a => a.name === action.payload)[0].countries.map( e => e)
         return { 
             ...state,
             countries: filterByActivity

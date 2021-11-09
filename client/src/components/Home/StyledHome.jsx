@@ -1,5 +1,6 @@
 import styled from "styled-components"
 
+
 export const StyledHome = styled.div`
 padding-top: 180px;
 
@@ -13,10 +14,8 @@ padding-top: 180px;
 
     display: flex;
     justify-content: center;
-    flex-direccion:row;
     flex-wrap: wrap;
-    /* padding: 40px; */
-    /* margin-top: 80px; */
+    margin: 10px 20px;
     
     .contenedor{
         flex-direction: row;
@@ -51,7 +50,7 @@ padding-top: 180px;
 
     select{
         border-radius: 20px;
-        flex-direccion:columm;
+        
         background: #1c1b1b;
         margin:1px 20px;
         flex: 1;

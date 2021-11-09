@@ -70,7 +70,7 @@ const Home = () => {
             
             <select onChange={e => handleByActivity(e)} >
             <option value='Nothing'>Nothing</option>
-            <option value="prueva">prueva</option>
+            <option value="All">All</option>
            {
                
                activities.map( i  => (
