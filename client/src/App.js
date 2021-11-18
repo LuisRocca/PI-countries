@@ -7,7 +7,7 @@ import Navbar from './components/Navbar/Navbar';
 import About from './components/About/About';
 
 
-function App() {
+const App = () => {
   return (
     <>
       <BrowserRouter>

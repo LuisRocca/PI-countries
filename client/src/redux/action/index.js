@@ -41,13 +41,23 @@ export const getDetail = (id) => {
 }
 
 export const getCoutryName = (payload) => {
-  return async (dispatch) => {
-    const {data} = await axios(`http://localhost:3001/countries?name=${payload}`);
-    return dispatch({
-        type: SEARCH,
-        payload: data,
-    })
+  try {
+    return async (dispatch) => {
+      const {data} = await axios(`http://localhost:3001/countries?name=${payload}`);
+      
+      return dispatch({
+          type: SEARCH,
+          payload: data,
+      })
+    }
+  } catch (error){
+    console.log(error)
+    // return dispatch({
+    //   type: SEARCH,
+    //   payload:error,
+    // })
   }
+ 
 }
 
 export const createActivity = (payload) => {

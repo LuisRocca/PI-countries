@@ -29,7 +29,7 @@ transition: transform 250ms ease;
     display: flex;
     height: 18vh;
     justify-content: center;
-    padding: 15px 34px;
+    padding: 15px 45px;
      
     img{
        

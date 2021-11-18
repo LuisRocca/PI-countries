@@ -68,6 +68,7 @@ router.get('/countries' , async(req, res) => { // /countries?name=argentina
         await getApiInfo() :// asi que si la db esta bacia llamo a la api
         await getDb() // si no saco de la bd 
     if ( name ) {
+        console.log("este es el name" ,name)
         const byName = countries.filter(n => n.name.toLowerCase().includes(name.toLowerCase()));
         byName.length ? 
         res.status(200).send(byName) :

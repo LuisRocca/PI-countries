@@ -191,7 +191,7 @@ const ActivityCreate = () => {
               }
             </ul>
 
-          <button className='submit' type="submit">Crear Activities</button>
+          <button className='submit' type="submit">Create Activities</button>
         </form>
       </div>
     </StyledActivity>

@@ -16,7 +16,6 @@ ul{
     a{
         
         text-decoration: none;
-        color: #black;
         padding: 5px 10px;
         border: 2px solid #1c1b1b;
         border-radius: 5px;
@@ -26,6 +25,11 @@ ul{
     a:hover{
         background-color: #8fbfd6;
     }
+    .active {
+    background-color: #8fbfd6eb;
 }
+   
+}
+
 
 ` 

@@ -9,7 +9,7 @@ const LandingPage = () => {
            <img src={Img} />
            </div>
           <div className="container">
-          <h1>Welcome may PI</h1>  
+          <h1>Welcome my PI</h1>  
           <Link to='/home'>go</Link>
           </div>
         </StyledLanding>

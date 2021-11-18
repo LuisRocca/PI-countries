@@ -49,16 +49,14 @@ padding-top: 180px;
      }
 
     select{
-        border-radius: 20px;
-        
+        border-radius: 20px;     
         background: #1c1b1b;
         margin:1px 20px;
         flex: 1;
-        padding: 5px;
+        padding: 3px;
         color:#fff;
         cursor:pointer;
-        font-size: 1em;
-       
+        font-size: 1em;    
     }
 
 }
@@ -70,9 +68,8 @@ padding-top: 180px;
        position: relative;
    }
 
-   
-
 }
+
 
 ` 
 
