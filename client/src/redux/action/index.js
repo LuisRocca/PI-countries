@@ -12,7 +12,7 @@ export const GET_ACTIVITIES = 'GET_ACTIVITIES';
 
 export const getAllActivities = () => {
   return async (dispatch) => {
-    const { data } = await axios("http://localhost:3001/activity");
+    const { data } = await axios("/activity");
     return dispatch({
       type: GET_ACTIVITIES,
       payload: data,
@@ -22,7 +22,7 @@ export const getAllActivities = () => {
 
 export const getAllCountries = () => {
   return async (dispatch) => {
-    const {data} = await axios("http://localhost:3001/countries");
+    const {data} = await axios("/countries");
     return dispatch({
       type: COUNTRIES,
       payload: data,
@@ -32,7 +32,7 @@ export const getAllCountries = () => {
 
 export const getDetail = (id) => {
   return async (dispatch) => {
-    const {data} = await axios(`http://localhost:3001/countries/${id}`);
+    const {data} = await axios(`/countries/${id}`);
     return dispatch({
       type: GET_DETAIL,
       payload: data
@@ -43,7 +43,7 @@ export const getDetail = (id) => {
 export const getCoutryName = (payload) => {
   try {
     return async (dispatch) => {
-      const {data} = await axios(`http://localhost:3001/countries?name=${payload}`);
+      const {data} = await axios(`/countries?name=${payload}`);
       
       return dispatch({
           type: SEARCH,
@@ -62,7 +62,7 @@ export const getCoutryName = (payload) => {
 
 export const createActivity = (payload) => {
   return async (dispatch) => {
-    const  res  = await axios.post('http://localhost:3001/activity', payload);
+    const  res  = await axios.post('/activity', payload);
     return dispatch({
       type: CREATE_ACTIVITY,
      res
